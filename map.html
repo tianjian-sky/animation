@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 50px">
+
+<head>
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta charset="UTF-8" http-equiv="Content-Type">
+  <meta name="format-detection" content="telephone=no,email=no,address=no" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1" />
+  <title>大家健康</title>
+</head>
+
+<body>
+  <div id="app" style="width:300px;height:300px;resize:true;border:1px solid blue;">
+    <object id="object" data="./china.svg" type="image/svg+xml"></object>
+  </div>
+  <div id="app2" style="width:300px;height:300px;resize:true;border:1px solid blue;">
+    <object id="object2" data="./china2.svg" type="image/svg+xml"></object>
+  </div>
+  <div id="app3" style="width:300px;height:300px;resize:true;border:1px solid blue;">
+    <object id="object3" data="./china3.svg" type="image/svg+xml"></object>
+  </div>
+</body>
+<script src="https://jic.talkingdata.com/app/h5/v1?appid=<%= htmlWebpackPlugin.options.tkAppId %>&vn=djjk<%= htmlWebpackPlugin.options.version %>&vc=<%= htmlWebpackPlugin.options.version %>"
+  async></script>
+</html>
