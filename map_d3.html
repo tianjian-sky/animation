@@ -93,12 +93,12 @@ text-align:center;
       }
       function mouseOut(){
         d3.select("#tooltip").transition().duration(500).style("opacity", 0);
-        }
-        d3.select(id).selectAll(".state")
-        .data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;})
+      }
+      d3.select(id).selectAll(".state")
+        .data(uStatePaths).enter().append("path").attr("class","state").attr("d",function(d){ return d.d;}).attr("id", function(d){ return d.id;})
         .style("fill",function(d){ return data[d.id].color; })
         .on("mouseover", mouseOver).on("mouseout", mouseOut);
-        }
+    }
         this.uStates=uStates;
       })();
   
@@ -109,7 +109,12 @@ text-align:center;
   </script>
   <script>
 function tooltipHtml(n, d){ /* function to create html content string in tooltip div. */
- return "<h4>"+n+"</h4><table>"+"<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+"<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+ "<tr><td>High</td><td>"+(d.high)+"</td></tr>"+ "</table>"; }
- var sampleData ={}; /* Sample random data. */  ['JXI', 'LIA', 'TIB', 'NMG', 'SHH', 'CHQ', 'XIN', 'SHD', 'HEN', 'GUD', 'GUI', 'BEJ', 'MAC', 'TAJ', 'HLJ', 'HEB', 'ZHJ', 'ANH', 'GXI', 'HAI', 'JIL', 'SHX', 'HUN', 'YUN', 'FUJ', 'HUB', 'SHA', 'HKG', 'QIH', 'GAN', 'JSU', 'SCH', 'NXA', 'TAI'].forEach(function(d){  var low=Math.round(100*Math.random()), mid=Math.round(100*Math.random()),  high=Math.round(100*Math.random()); sampleData[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)}; }); /* draw states on id #statesvg */ uStates.draw("#statesvg", sampleData, tooltipHtml); </script>
+ return "<h4>"+n+"</h4><table>"+"<tr><td>Low</td><td>"+(d.low)+"</td></tr>"+"<tr><td>Average</td><td>"+(d.avg)+"</td></tr>"+ "<tr><td>High</td><td>"+(d.high)+"</td></tr>"+ "</table>"; 
+}
+ var sampleData ={}; /* Sample random data. */  
+ ['JXI', 'LIA', 'TIB', 'NMG', 'SHH', 'CHQ', 'XIN', 'SHD', 'HEN', 'GUD', 'GUI', 'BEJ', 'MAC', 'TAJ', 'HLJ', 'HEB', 'ZHJ', 'ANH', 'GXI', 'HAI', 'JIL', 'SHX', 'HUN', 'YUN', 'FUJ', 'HUB', 'SHA', 'HKG', 'QIH', 'GAN', 'JSU', 'SCH', 'NXA', 'TAI'].forEach(
+   function(d){  var low=Math.round(100*Math.random()), mid=Math.round(100*Math.random()),  high=Math.round(100*Math.random()); sampleData[d]={low:d3.min([low,mid,high]), high:d3.max([low,mid,high]), avg:Math.round((low+mid+high)/3), color:d3.interpolate("#ffffcc", "#800026")(low/100)}; }
+  ); /* draw states on id #statesvg */ 
+  uStates.draw("#statesvg", sampleData, tooltipHtml); </script>
  </body>
 </html>
